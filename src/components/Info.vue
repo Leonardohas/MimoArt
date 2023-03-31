@@ -9,6 +9,9 @@
                 <li>Node</li>
                 <li>Python</li>
             </ul>
+            <div>
+                <v-btn :color="mimoPrimaryColor" @click="displayEmail">{{ buttomText }}</v-btn>
+            </div>
             <p v-show="showEmail" class="pt-3">Mande uma mensagem para: {{ email }}</p>
             <p>Para acessar meu curriculum <a v-bind:href="link">clique aqui</a></p> <!-- Utilizar v-bind é o mesmo que utilizar : -->
             <Picture />
@@ -28,10 +31,23 @@ export default {
     data(){
         return {
             isWorking: true,
-            showEmail: true,
+            showEmail: false,
             email: `leonardohas83@gmail.com`,
-            link: ``
+            link: ``,
+            mimoPrimaryColor: "#cb8db6",
+            buttomText: `Mostrar E-mail`
         }
-    }
+    },
+
+    methods: {
+        displayEmail(){
+            this.showEmail = !this.showEmail;
+            if (!this.showEmail) {
+                this.buttomText = "Mostrar E-mail"
+            } else {
+                this.buttomText = "Esconder E-mail"
+            }
+        }
+    },
 }
 </script>

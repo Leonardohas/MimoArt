@@ -13,10 +13,17 @@ export default {
         }
     },
 
+    methods: {
+        lifeCycle(){
+            console.log("Teste");
+        },
+    },
+
     created() { // apos a criação do componente eu vou fazer alguma coisa!!!!
         setTimeout(() => {
             this.name = "Leonardo Henrique"
         }, 1000)
+        this.lifeCycle();
     },
 
     mounted() {
