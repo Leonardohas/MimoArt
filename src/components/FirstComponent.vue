@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>Começando o projeto mimoArt</h1>
+      <h1>Treino para o projeto mimo art</h1>
       <p>Meu nome é {{ personalInfo.name }} e tenho {{ personalInfo.age }}</p>
     </div>
 </template>

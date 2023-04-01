@@ -4,6 +4,7 @@
       <FirstComponent />
       <LifeCycle /> 
       <Info /> 
+      <AvatarInfos />
     </v-main>
   </v-app>
 </template>
@@ -12,6 +13,7 @@
 import FirstComponent from './components/FirstComponent.vue'
 import LifeCycle from './components/LifeCycle.vue'
 import Info from './components/Info.vue'
+import AvatarInfos from './components/AvatarInfos.vue'
 
 export default {
   name: 'App',
@@ -20,6 +22,7 @@ export default {
     FirstComponent,
     LifeCycle,
     Info,
+    AvatarInfos,
   },
 
   data: () => ({
