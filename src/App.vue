@@ -4,7 +4,7 @@
       <FirstComponent />
       <LifeCycle /> 
       <Info /> 
-      <AvatarInfos />
+      <!-- <AvatarInfos /> -->
     </v-main>
   </v-app>
 </template>

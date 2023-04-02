@@ -35,7 +35,7 @@ export default {
             cardTitle: "",
             cardSubtitle: "",
             displayButtom: {
-                value: true,
+                value: false,
                 text: "Show Avatar Characters",
                 color: "#cb8db6",
             },

@@ -30,7 +30,7 @@
             </div>
             <p v-show="showEmail" class="pt-3">Mande uma mensagem para: {{ email }}</p>
             <p>Para acessar meu curriculum <a v-bind:href="link">clique aqui</a></p> <!-- Utilizar v-bind é o mesmo que utilizar : -->
-            <!-- <Picture /> -->
+            <Picture />
 
         </v-col>
     </div>
