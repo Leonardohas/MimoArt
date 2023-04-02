@@ -3,7 +3,7 @@
         <v-container>
             <v-row justify="center">
                 <v-btn 
-                class="no-uppercase text-yellow" 
+                class="no-uppercase text-white" 
                 :color="displayButtom.color"
                 @click="showAvatarCharactersInformations"
                 >
@@ -11,31 +11,25 @@
                 </v-btn>            
             </v-row>
                 <v-row v-if="displayButtom.value" justify="center" class="pt-6">
-                    <v-card v-for="characters in avatarCharacters" :key="characters.id" class="mx-4 my-4 py-4" theme="dark" max-width="300">
-                        <v-card-title class="text-blue">
-                            <h3>
-                                <span>Character name: </span>
-                                <span class="text-yellow">{{ characters.name }}</span>
-                            </h3>
-                        </v-card-title>
-                        <v-card-subtitle class="text-blue">
-                            <h3>
-                                <span>Your Skill is: </span>
-                                <span class="text-yellow">{{ characters.elementalAffinity }}</span>
-                            </h3>
-                        </v-card-subtitle>
-                        <v-card-text>
-                            <h3>{{ characters.description }}</h3>
-                        </v-card-text>
-                    </v-card>
+                    <Card v-for="characters in avatarCharacters" :key="characters.id"
+                        :charactersName="characters.name"
+                        :skill="characters.Affinity"
+                        :description="characters.description"
+                        :link="characters.link"
+                        :textColor="textColor"
+                    />
                 </v-row>
         </v-container>
     </div>
 </template>
 
 <script>
+import Card from './Card.vue';
 export default {
     name: "AvatarInfos",
+    components: {
+        Card
+    },
     data(){
         return {
             cardTitle: "",
@@ -43,14 +37,17 @@ export default {
             displayButtom: {
                 value: true,
                 text: "Show Avatar Characters",
-                color: "red",
+                color: "#cb8db6",
             },
+            textColor: "text-red",
+
             avatarCharacters: [
-                {id: 1, name: "Aang", elementalAffinity: "Air", description: "The last air bander"},
-                {id: 2, name: "Zuko", elementalAffinity: "Fire", description: "The prince of the fire nation"},
-                {id: 3, name: "Katara", elementalAffinity: "Water", description: "Soka`s sister and water bander master"},
-                {id: 4, name: "Soka", elementalAffinity: "boomerang", description: "Katara old brothers and Hakota son"},
-                {id: 5, name: "Uncle", elementalAffinity: "Fire", description: "Zuko uncle and fire lord brother"},
+                {id: 1, name: "Aang", Affinity: "Air", description: "The last air bander", link: "https://www.charactour.com/hub/characters/view/Aang.Avatar-The-Last-Airbender"},
+                {id: 2, name: "Zuko", Affinity: "Fire", description: "The prince of the fire nation", link: "https://www.charactour.com/hub/characters/view/Prince-Zuko.Avatar-The-Last-Airbender"},
+                {id: 3, name: "Katara", Affinity: "Water", description: "Soka`s sister and water bander master", link: "https://www.charactour.com/hub/characters/view/Katara.Avatar-The-Last-Airbender"},
+                {id: 4, name: "Soka", Affinity: "boomerang", description: "Katara old brothers and Hakota son", link: "https://www.charactour.com/hub/characters/view/Sokka.Avatar-The-Last-Airbender#:~:text=funny%2C%20intelligent%2C%20and%20immature.,and%20any%20other%20supernatural%20stuff."},
+                {id: 5, name: "Uncle", Affinity: "Fire", description: "Zuko uncle and fire lord brother", link: "https://www.charactour.com/hub/characters/view/Iroh.Avatar-The-Last-Airbender"},
+                {id: 5, name: "Korra", Affinity: "All four elements", description: "Worse avatar ever ", link: "https://www.charactour.com/hub/characters/view/Korra-The.Legend.of.Korra"},
             ],
         }
     },
