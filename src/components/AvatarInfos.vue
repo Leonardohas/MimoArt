@@ -11,14 +11,18 @@
                 </v-btn>            
             </v-row>
                 <v-row v-if="displayButtom.value" justify="center" class="pt-6">
-                    <v-card v-for="characters in avatarCharacters" :key="characters.id" class="mx-4 my-4 py-4" theme="dark">
+                    <v-card v-for="characters in avatarCharacters" :key="characters.id" class="mx-4 my-4 py-4" theme="dark" max-width="300">
                         <v-card-title class="text-blue">
-                            <span>Character name: </span>
-                            <span class="text-yellow">{{ characters.name }}</span>
+                            <h3>
+                                <span>Character name: </span>
+                                <span class="text-yellow">{{ characters.name }}</span>
+                            </h3>
                         </v-card-title>
                         <v-card-subtitle class="text-blue">
-                            <span>Your Skill is: </span>
-                            <span class="text-yellow">{{ characters.elementalAffinity }}</span>
+                            <h3>
+                                <span>Your Skill is: </span>
+                                <span class="text-yellow">{{ characters.elementalAffinity }}</span>
+                            </h3>
                         </v-card-subtitle>
                         <v-card-text>
                             <h3>{{ characters.description }}</h3>
