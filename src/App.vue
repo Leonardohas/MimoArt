@@ -1,19 +1,21 @@
 <template>
-  <v-app>
-    <v-main>
-      <FirstComponent />
-    </v-main>
-  </v-app>
+  <div>
+    <NavBar />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
 <script>
-import FirstComponent from './components/FirstComponent.vue'
+import Footer from './components/Footer.vue';
+import NavBar from './components/NavBar.vue';
 
 export default {
   name: 'App',
 
   components: {
-    FirstComponent,
+    NavBar,
+    Footer,
   },
 
   data: () => ({
