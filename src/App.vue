@@ -2,7 +2,6 @@
   <div>
     <NavBar :logo="logo" :alt="appName" />
     <router-view />
-    <Footer />
   </div>
 </template>
 
@@ -33,11 +32,6 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-.main-container {
-  margin: 50px;
-  height: 675px;
 }
 
 h1 {
