@@ -1,6 +1,13 @@
 <template>
     <div id="main-banner">
-        <h1>Make your wish</h1>
+        <v-row class="banner-row" justify="center">
+            <v-col align-self="center">
+                <h1 class="text-white">Make your wish</h1>
+            </v-col>
+            <v-col align-self="center">
+                <v-img src="/img/mimoLogo.png" height="350px"></v-img>
+            </v-col>
+        </v-row>
     </div>
 </template>
 
@@ -11,22 +18,8 @@ export default {
 </script>
 
 <style scoped>
-#main-banner {
-    background-image: url('/public/img/burger.jpg');
-    background-position: 0 -250px;
-    background-size: cover;
-    height: 750px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-#main-banner h1 {
-    color: white;
-    text-align: center;
-    font-size: 60px;
-    background-color: #222;
-    padding: 20px 40px;
+.banner-row {
+    background-color: grey;
 }
 
 </style>
