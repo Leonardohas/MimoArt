@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .banner-row {
-    background-color: grey;
+    background-color: black;
 }
 
 </style>
