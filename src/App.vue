@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <NavBar :logo="logo" :alt="appName" />
     <router-view />
     <Footer />
   </div>
@@ -18,8 +18,31 @@ export default {
     Footer,
   },
 
-  data: () => ({
-    //
-  }),
+  data(){
+    return {
+      logo: "/img/logo.png",
+      appName: "Teste",
+    }
+  },
 }
 </script>
+
+<style>
+* {
+  font-family: Helvetica;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  margin: 50px;
+  height: 675px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+</style>
