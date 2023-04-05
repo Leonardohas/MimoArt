@@ -1,20 +1,37 @@
 <template>
     <div>
-        <v-form>
+        <v-form ref="requestDataForm">
             <v-container>
                 <v-row justify="center">
-                    <h1 class="mt-6">Choose your itens</h1>
+                    <h1 class="mt-6">complete the fields below</h1>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="7">
                         <span>Type your name:</span>
-                        <v-text-field v-model="requestData.name" label="Client name" variant="underlined"/>
+                        <v-text-field 
+                        v-model="requestData.name" 
+                        label="Client name" 
+                        variant="underlined" 
+                        :rules="[rules.name]"
+                        />
+
                         <span>Choose your bread:</span>
-                        <v-select label="Bread" variant="underlined"/>
+                        <v-select 
+                        label="Bread" 
+                        variant="underlined"
+                        />
+
                         <span>Choose your meat:</span>
-                        <v-select label="Meat" variant="underlined"/>
+                        <v-select 
+                        label="Meat" 
+                        variant="underlined"/>
+
                         <span>Choose a color:</span>
-                        <v-checkbox label="Red" color="#cb8db6" hide-details="auto" />                        
+                        <v-checkbox 
+                        label="Red" 
+                        color="#cb8db6" 
+                        hide-details="auto"
+                        />                        
                     </v-col>
                 </v-row>
                 <v-row justify="center" >
@@ -58,11 +75,16 @@ export default {
                 bread: "",
                 meat: "",
             },
+            valid: true,
+            rules: {
+                name: (name) => this.nameRules(name),
+            }
         }
     },
     methods: {
         showUserRequestData(){
             this.capitalLetter();
+            this.validateForm();
             console.log(this.requestData);
         },
 
@@ -71,16 +93,32 @@ export default {
             var formatedName = [];
             name.forEach((words) => {
                 var upperletters = words[0];
-                formatedName.push(upperletters.toLocaleUpperCase() + words.slice(1));
+                if (upperletters) {
+                    formatedName.push(upperletters.toLocaleUpperCase() + words.slice(1));     
+                } else {
+                    formatedName.push("");
+                }
             });
             this.requestData.name = formatedName.join(" ");
         },
 
         clearForm(){
+            this.$refs.requestDataForm.reset();
             this.requestData = {
                 name: "",
                 bread: "",
                 meat: "",
+            }
+        },
+
+        nameRules(name){
+            return !!name || "Must type a name!"
+        },
+
+        async validateForm(){
+            const { valid } = await this.$refs.requestDataForm.validate();
+            if (valid) {
+                alert("valid form")
             }
         },
     },
