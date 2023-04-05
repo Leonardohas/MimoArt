@@ -4,7 +4,7 @@
             <v-row>
                 <v-col>
                     <router-link to="/">
-                        <img :src="logo" :alt="alt" id="logo" class="ml-6">
+                        <img :src="logo" :alt="alt" id="logo" class="ml-6" />
                     </router-link>
                 </v-col>
                 <v-col align="end" align-self="center" class="mr-6">

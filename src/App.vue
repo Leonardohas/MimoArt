@@ -19,7 +19,7 @@ export default {
 
   data(){
     return {
-      logo: "/img/logo.png",
+      logo: "/img/mimoArt.png",
       appName: "Teste",
     }
   },
