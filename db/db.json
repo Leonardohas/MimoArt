@@ -1,65 +1,73 @@
 {
-    "ingredientes": {
-      "paes": [
+    "materials": {
+      "cloths": [
         {
           "id": 1,
-          "tipo": "Italiano Branco"
+          "tipo": "Tricoline"
         },
         {
           "id": 2,
-          "tipo": "3 Queijos"
+          "tipo": "Malha"
         },
         {
           "id": 3,
-          "tipo": "Parmesão e Orégano"
+          "tipo": "Cetim"
         },
         {
           "id": 4,
-          "tipo": "Integral"
+          "tipo": "Canvas"
+        },
+        {
+          "id": 5,
+          "tipo": "Córdoba"
         }
       ],
-      "carnes": [
+      "impress": [
         {
           "id": 1,
-          "tipo": "Maminha"
+          "tipo": "rotativas"
         },
         {
           "id": 2,
-          "tipo": "Alcatra"
+          "tipo": "digital"
         },
         {
           "id": 3,
-          "tipo": "Picanha"
+          "tipo": "Termica"
         },
         {
           "id": 4,
-          "tipo": "Veggie burger"
+          "tipo": "Outros"
         }
       ],
-      "opcionais": [
+      "colors": [
         {
           "id": 1,
-          "tipo": "Bacon"
+          "tipo": "Red"
         },
         {
           "id": 2,
-          "tipo": "Cheddar"
+          "tipo": "Green"
         },
         {
           "id": 3,
-          "tipo": "Salame"
+          "tipo": "Blue"
         },
         {
           "id": 4,
-          "tipo": "Tomate"
+          "tipo": "Orange"
         },
         {
           "id": 4,
-          "tipo": "Cebola roxa"
+          "tipo": "Purple"
         },
         {
           "id": 4,
-          "tipo": "Pepino"
+          "tipo": "Black"
+        },
+        {
+          "id": 5,
+          "tipo": "White"
         }
       ]
     },
@@ -77,5 +85,5 @@
         "tipo": "Finalizado"
       }
     ],
-    "burgers": []
+    "product": []
   }
