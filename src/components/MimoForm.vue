@@ -8,33 +8,51 @@
                 <v-row justify="center">
                     <v-col cols="7">
                         <span>Type your name:</span>
-                        <v-text-field 
+                        <v-text-field
                         v-model="requestData.name" 
                         label="Client name" 
                         variant="underlined" 
                         :rules="[rules.name]"
                         />
 
-                        <span>Choose your bread:</span>
+                        <span>Choose your cloth:</span>
                         <v-select 
-                        label="Bread" 
+                        label="Cloths"
+                        :items="getCloths()"
+                        v-model="requestData.cloth"
                         variant="underlined"
                         />
 
-                        <span>Choose your meat:</span>
+                        <span>Choose your impress:</span>
                         <v-select 
-                        label="Meat" 
-                        variant="underlined"/>
-
+                        label="Impress"
+                        :items="getImpress()"
+                        v-model="requestData.impres"
+                        variant="underlined"
+                        />
                         <span>Choose a color:</span>
-                        <v-checkbox 
-                        label="Red" 
-                        color="#cb8db6" 
-                        hide-details="auto"
-                        />                        
                     </v-col>
                 </v-row>
-                <v-row justify="center" >
+                <v-row class="mt-0">                 
+                    <v-col
+                    cols="6"
+                    justify-center
+                    v-for="color in colors" 
+                    :key="color.id"
+                    >
+                        <v-checkbox                        
+                        :label="color.tipo"
+                        :value="color.tipo"
+                        v-model="requestData.color"
+                        color="#cb8db6"
+                        hide-details="auto"     
+                        class="v-input__control"       
+                        />
+                    </v-col>
+                </v-row>
+               
+
+                <v-row class="d-flex justify-center">
                     <v-col cols="9" md="7" align="end"> 
                         <v-hover v-slot:default="{ isHovering, props }">
                             <v-btn 
@@ -53,7 +71,7 @@
                             :color="isHovering ? 'success' : '#cb8db6'"
                             width="100px" 
                             class="text-white"
-                            @click="showUserRequestData()"
+                            @click="submit()"
                             >
                             submit</v-btn>
                         </v-hover>
