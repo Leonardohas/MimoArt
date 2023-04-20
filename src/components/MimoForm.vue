@@ -90,9 +90,13 @@ export default {
         return {
             requestData: {
                 name: "",
-                bread: "",
-                meat: "",
+                cloth: null,
+                impres: null,
+                color: null,
             },
+            cloths: [],
+            impress: [],
+            colors: null,
             valid: true,
             rules: {
                 name: (name) => this.nameRules(name),
