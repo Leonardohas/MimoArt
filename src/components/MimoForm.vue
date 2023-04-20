@@ -32,6 +32,7 @@
                         />
                         <span>Choose a color:</span>
                     </v-col>
+                <!-- TODO: corrigir espaçamentos dos checkboxes -->
                 </v-row>
                 <v-row class="mt-0">                 
                     <v-col
@@ -51,7 +52,6 @@
                     </v-col>
                 </v-row>
                
-
                 <v-row class="d-flex justify-center">
                     <v-col cols="9" md="7" align="end"> 
                         <v-hover v-slot:default="{ isHovering, props }">
