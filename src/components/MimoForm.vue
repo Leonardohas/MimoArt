@@ -109,10 +109,9 @@ export default {
     },
 
     methods: {
-        showUserRequestData(){
+        submit(){
             this.capitalLetter();
             this.validateForm();
-            console.log(this.requestData);
         },
 
         capitalLetter(){
