@@ -103,6 +103,11 @@ export default {
             }
         }
     },
+
+    mounted() {
+        this.getMaterials();
+    },
+
     methods: {
         showUserRequestData(){
             this.capitalLetter();
