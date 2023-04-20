@@ -182,4 +182,8 @@ export default {
 span {
     color: #cb8db6;
 }
+.v-input__control {
+    display: flex;
+    justify-content: center;
+}
 </style>
