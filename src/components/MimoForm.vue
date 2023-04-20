@@ -148,6 +148,32 @@ export default {
                 alert("valid form")
             }
         },
+
+        async getMaterials() {
+            const materials = await fetch("http://localhost:3000/materials");
+            const data = await materials.json();
+            this.cloths = data.cloths;
+            this.impress = data.impress;
+            this.colors = data.colors;        
+        },
+
+        getCloths() {
+            var cloth = this.cloths;
+            var typeOfCloth = [];
+            cloth.filter((cloths) => {
+                typeOfCloth.push(cloths.tipo);
+            });
+            return typeOfCloth;
+        },
+
+        getImpress() {
+            var impres = this.impress;
+            var typeOfImpress = [];
+            impres.filter((impress) => {
+                typeOfImpress.push(impress.tipo);
+            });
+            return typeOfImpress;
+        },
     },
 }
 </script>
