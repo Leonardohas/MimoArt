@@ -117,6 +117,7 @@ export default {
             this.capitalLetter();
             this.validateForm();
             this.createOrder();
+            this.getOrderDate();
         },
 
         capitalLetter(){
@@ -178,6 +179,14 @@ export default {
                 typeOfImpress.push(impress.tipo);
             });
             return typeOfImpress;
+        },
+
+        getOrderDate(){
+            const date = new Date();
+            var currentDate = date.toLocaleDateString();
+            var currentTime = date.toLocaleTimeString().slice(0, -3);
+            this.requestData.orderDate = currentDate;
+            this.requestData.orderTime = currentTime;
         },
 
         async createOrder(event) {
