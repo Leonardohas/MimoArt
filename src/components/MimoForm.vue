@@ -46,7 +46,8 @@
                         :value="color.tipo"
                         v-model="requestData.color"
                         color="#cb8db6"
-                        hide-details="auto"     
+                        hide-details="auto"   
+                        multiple  
                         class="v-input__control"       
                         />
                     </v-col>
