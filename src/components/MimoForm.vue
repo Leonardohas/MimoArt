@@ -112,6 +112,7 @@ export default {
         submit(){
             this.capitalLetter();
             this.validateForm();
+            this.createOrder();
         },
 
         capitalLetter(){
@@ -132,8 +133,9 @@ export default {
             this.$refs.requestDataForm.reset();
             this.requestData = {
                 name: "",
-                bread: "",
-                meat: "",
+                cloth: "",
+                impres: "",
+                color: [],
             }
         },
 
@@ -172,6 +174,17 @@ export default {
                 typeOfImpress.push(impress.tipo);
             });
             return typeOfImpress;
+        },
+
+        async createOrder(event) {
+            const data = {
+               name: this.requestData.name,
+               cloths: this.requestData.cloth,
+               impress: this.requestData.impres,
+               colors: this.requestData.color,
+
+            }
+            console.log(data);
         },
     },
 }
