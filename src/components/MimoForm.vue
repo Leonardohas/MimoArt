@@ -90,9 +90,9 @@ export default {
         return {
             requestData: {
                 name: "",
-                cloth: null,
-                impres: null,
-                color: null,
+                cloth: "",
+                impres: "",
+                color: [],
             },
             cloths: [],
             impress: [],
