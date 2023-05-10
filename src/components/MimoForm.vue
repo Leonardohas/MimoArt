@@ -190,14 +190,24 @@ export default {
         },
 
         async createOrder(event) {
+            const url = "http://localhost:3000/product";
             const data = {
                name: this.requestData.name,
                cloths: this.requestData.cloth,
                impress: this.requestData.impres,
                colors: this.requestData.color,
-
-            }
-            console.log(data);
+               status: this.requestData.status,
+               orderDate: this.requestData.orderDate,
+               orderTime: this.requestData.orderTime,
+            };
+            const jsonData = JSON.stringify(data);
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: jsonData
+            });
+            const requisition = await response.json();
+            this.clearForm();
         },
     },
 }
