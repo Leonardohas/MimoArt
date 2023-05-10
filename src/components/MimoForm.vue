@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-form ref="requestDataForm">
+        <v-form ref="requestDataForm" @submit="createOrder">
             <v-container>
                 <v-row justify="center">
                     <h1 class="mt-6">complete the fields below</h1>
