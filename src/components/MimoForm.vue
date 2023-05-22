@@ -84,8 +84,10 @@
 </template>
 
 <script>
+import globalRulesMethods from "/mixins/globalRulesMethods"
 export default {
     name: "MimoForm",
+    mixins: [globalRulesMethods],
     // secondary color : #8499b4
     data(){
         return {
