@@ -154,10 +154,6 @@ export default {
             }
         },
 
-        nameRules(name){
-            return !!name || "Must type a name!"
-        },
-
         async validateForm(){
             const { valid } = await this.$refs.requestDataForm.validate();
             if (valid) {
@@ -217,7 +213,6 @@ export default {
                 body: jsonData
             });
             const requisition = await response.json();
-            this.clearForm();
         },
     },
 }
