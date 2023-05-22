@@ -104,6 +104,10 @@ export default {
             impress: [],
             colors: null,
             valid: true,
+            errorTexts: {
+                name: "Must type a name",
+                required: "required field",
+            },
             rules: {
                 name: (name) => this.nameRules(name),
             }
