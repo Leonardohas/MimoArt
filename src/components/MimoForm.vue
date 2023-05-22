@@ -21,6 +21,7 @@
                         :items="getCloths()"
                         v-model="requestData.cloth"
                         variant="underlined"
+                        :rules="[rules.required]"
                         />
 
                         <span>Choose your impress:</span>
@@ -29,6 +30,7 @@
                         :items="getImpress()"
                         v-model="requestData.impres"
                         variant="underlined"
+                        :rules="[rules.required]"
                         />
                         <span>Choose a color:</span>
                     </v-col>
@@ -48,7 +50,7 @@
                         color="#cb8db6"
                         hide-details="auto"   
                         multiple  
-                        class="v-input__control"       
+                        class="v-input__control"
                         />
                     </v-col>
                 </v-row>
@@ -109,7 +111,9 @@ export default {
                 required: "required field",
             },
             rules: {
-                name: (name) => this.nameRules(name),
+                name: (name) => this.nameRules(name, this.errorTexts.name),
+                required: (field) => this.mandatory(field, this.errorTexts.required),
+                checkBox: (checkBox) => this.checkBoxRule(checkBox),
             }
         }
     },
