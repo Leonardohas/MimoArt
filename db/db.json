@@ -1,85 +1,195 @@
 {
-    "materials": {
-      "cloths": [
-        {
-          "id": 1,
-          "tipo": "Tricoline"
-        },
-        {
-          "id": 2,
-          "tipo": "Malha"
-        },
-        {
-          "id": 3,
-          "tipo": "Cetim"
-        },
-        {
-          "id": 4,
-          "tipo": "Canvas"
-        },
-        {
-          "id": 5,
-          "tipo": "Córdoba"
-        }
-      ],
-      "impress": [
-        {
-          "id": 1,
-          "tipo": "rotativas"
-        },
-        {
-          "id": 2,
-          "tipo": "digital"
-        },
-        {
-          "id": 3,
-          "tipo": "Termica"
-        },
-        {
-          "id": 4,
-          "tipo": "Outros"
-        }
-      ],
-      "colors": [
-        {
-          "id": 1,
-          "tipo": "Red"
-        },
-        {
-          "id": 2,
-          "tipo": "Green"
-        },
-        {
-          "id": 3,
-          "tipo": "Blue"
-        },
-        {
-          "id": 4,
-          "tipo": "Orange"
-        },
-        {
-          "id": 5,
-          "tipo": "Purple"
-        },
-        {
-          "id": 6,
-          "tipo": "Black"
-        }
-      ]
-    },
-    "status": [
+  "materials": {
+    "cloths": [
       {
         "id": 1,
-        "tipo": "Solicitado"
+        "tipo": "Tricoline"
       },
       {
         "id": 2,
-        "tipo": "Em produção"
+        "tipo": "Malha"
       },
       {
         "id": 3,
-        "tipo": "Finalizado"
+        "tipo": "Cetim"
+      },
+      {
+        "id": 4,
+        "tipo": "Canvas"
+      },
+      {
+        "id": 5,
+        "tipo": "Córdoba"
       }
     ],
-    "product": []
-  }
+    "impress": [
+      {
+        "id": 1,
+        "tipo": "Rotativas"
+      },
+      {
+        "id": 2,
+        "tipo": "Digital"
+      },
+      {
+        "id": 3,
+        "tipo": "Termica"
+      },
+      {
+        "id": 4,
+        "tipo": "Outros"
+      }
+    ],
+    "colors": [
+      {
+        "id": 1,
+        "tipo": "Red"
+      },
+      {
+        "id": 2,
+        "tipo": "Green"
+      },
+      {
+        "id": 3,
+        "tipo": "Blue"
+      },
+      {
+        "id": 4,
+        "tipo": "Orange"
+      },
+      {
+        "id": 5,
+        "tipo": "Purple"
+      },
+      {
+        "id": 6,
+        "tipo": "Black"
+      }
+    ]
+  },
+  "status": [
+    {
+      "id": 1,
+      "tipo": "Solicitado"
+    },
+    {
+      "id": 2,
+      "tipo": "Em produção"
+    },
+    {
+      "id": 3,
+      "tipo": "Finalizado"
+    }
+  ],
+  "product": [
+    {
+      "name": "Leo ",
+      "cloths": "Tricoline",
+      "impress": "Rotativas",
+      "colors": [
+        "Red",
+        "Green"
+      ],
+      "status": "Solicitado",
+      "id": 1
+    },
+    {
+      "name": "Teste",
+      "cloths": "",
+      "impress": "",
+      "colors": [],
+      "id": 2
+    },
+    {
+      "name": "Teste",
+      "cloths": "",
+      "impress": "",
+      "colors": [],
+      "id": 3
+    },
+    {
+      "name": "",
+      "cloths": "",
+      "impress": "",
+      "colors": [],
+      "id": 4
+    },
+    {
+      "name": "Vanecia Valdivina Antonia De Jesus",
+      "cloths": "Tricoline",
+      "impress": "Rotativas",
+      "colors": [
+        "Red",
+        "Blue",
+        "Green"
+      ],
+      "status": "Solicitado",
+      "orderDate": "10/05/2023",
+      "orderTime": "12:46",
+      "id": 5
+    },
+    {
+      "name": "Leonardo Henrique Alves Silva",
+      "cloths": "Canvas",
+      "impress": "Termica",
+      "colors": [
+        "Black",
+        "Red"
+      ],
+      "status": "Solicitado",
+      "orderDate": "10/05/2023",
+      "orderTime": "12:48",
+      "id": 6
+    },
+    {
+      "name": "",
+      "cloths": "Tricoline",
+      "impress": "",
+      "colors": [],
+      "status": "Solicitado",
+      "orderDate": "",
+      "orderTime": "",
+      "id": 7
+    },
+    {
+      "name": "",
+      "cloths": "Cetim",
+      "impress": "",
+      "colors": [],
+      "id": 8
+    },
+    {
+      "name": "",
+      "cloths": "",
+      "impress": "",
+      "colors": [],
+      "status": "Solicitado",
+      "orderDate": "",
+      "orderTime": "",
+      "id": 9
+    },
+    {
+      "name": "",
+      "cloths": "",
+      "impress": "",
+      "colors": [],
+      "status": "Solicitado",
+      "orderDate": "",
+      "orderTime": "",
+      "id": 10
+    },
+    {
+      "name": "Leonardo Henrique",
+      "cloths": "Tricoline",
+      "impress": "Rotativas",
+      "colors": [
+        "Red",
+        "Blue"
+      ],
+      "status": "Solicitado",
+      "orderDate": "26/05/2023",
+      "orderTime": "12:29",
+      "id": 11
+    }
+  ]
+}
