@@ -1,23 +1,31 @@
 <template>
-  <v-app>
-    <v-main>
-      <FirstComponent />
-    </v-main>
-  </v-app>
+  <div>
+    <NavBar :logo="logo" :alt="appName" />
+    <router-view />
+  </div>
 </template>
 
 <script>
-import FirstComponent from './components/FirstComponent.vue'
+import Footer from './components/Footer.vue';
+import NavBar from './components/NavBar.vue';
 
 export default {
   name: 'App',
 
   components: {
-    FirstComponent,
+    NavBar,
+    Footer,
   },
 
-  data: () => ({
-    //
-  }),
+  data(){
+    return {
+      logo: "/img/mimoArt.png",
+      appName: "Teste",
+    }
+  },
 }
 </script>
+
+<style>
+
+</style>
