@@ -7,9 +7,5 @@ export default {
         nameRules(name, errortext){
             return !!name || errortext;
         },
-        
-        checkBoxRule(checkBox) {
-            return !!checkBox;
-        },
     },
 }
