@@ -9,7 +9,7 @@
                 </v-col>
                 <v-col align="end" align-self="center" class="mr-6">
                     <router-link to="/">Home</router-link>
-                    <router-link to="/Pedidos" class="pl-2">Pedidos</router-link>                    
+                    <router-link to="/Pedidos" class="pl-2">Requests</router-link>                    
                 </v-col>
             </v-row>
         </v-toolbar>
