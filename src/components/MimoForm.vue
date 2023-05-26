@@ -9,8 +9,8 @@
                     <v-col cols="7">
                         <span>Type your name:</span>
                         <v-text-field
-                        v-model="requestData.name" 
                         label="Client name" 
+                        v-model="requestData.name" 
                         variant="underlined" 
                         :rules="[rules.name]"
                         />
@@ -20,7 +20,7 @@
                         label="Cloths"
                         :items="getCloths()"
                         v-model="requestData.cloth"
-                        variant="underlined"
+                        variant="underlined" 
                         :rules="[rules.required]"
                         />
 
@@ -32,29 +32,19 @@
                         variant="underlined"
                         :rules="[rules.required]"
                         />
+                        
                         <span>Choose a color:</span>
-                    </v-col>
-                <!-- TODO: corrigir espaçamentos dos checkboxes -->
-                </v-row>
-                <v-row class="mt-0">                 
-                    <v-col
-                    cols="6"
-                    justify-center
-                    v-for="color in colors" 
-                    :key="color.id"
-                    >
-                        <v-checkbox                        
-                        :label="color.tipo"
-                        :value="color.tipo"
+                        <v-select 
+                        label="Color"
+                        :items="getColors()"
                         v-model="requestData.color"
-                        color="#cb8db6"
-                        hide-details="auto"   
-                        multiple  
-                        class="v-input__control"
+                        variant="underlined"
+                        :rules="[rules.colors]"
+                        multiple
+                        chips
                         />
                     </v-col>
                 </v-row>
-               
                 <v-row class="d-flex justify-center">
                     <v-col cols="9" md="7" align="end"> 
                         <v-hover v-slot:default="{ isHovering, props }">
@@ -62,7 +52,7 @@
                             v-bind="props"
                             width="100px"
                             class="mr-10 mr-md-5 text-white"
-                            :color="isHovering ? 'orange' : '#cb8db6'"
+                            :color="isHovering ? 'red' : '#cb8db6'"
                             @click="clearForm()"
                             >
                                 clear
@@ -95,8 +85,8 @@ export default {
         return {
             requestData: {
                 name: "",
-                cloth: "",
-                impres: "",
+                cloth: null,
+                impres: null,
                 color: [],
                 status: "Solicitado",
                 orderDate: "",
@@ -104,7 +94,7 @@ export default {
             },
             cloths: [],
             impress: [],
-            colors: null,
+            colors: [],
             valid: true,
             errorTexts: {
                 name: "Must type a name",
@@ -113,7 +103,7 @@ export default {
             rules: {
                 name: (name) => this.nameRules(name, this.errorTexts.name),
                 required: (field) => this.mandatory(field, this.errorTexts.required),
-                checkBox: (checkBox) => this.checkBoxRule(checkBox),
+                colors: (colors) => this.colorsRule(colors),
             }
         }
     },
@@ -125,9 +115,8 @@ export default {
     methods: {
         submit(){
             this.capitalLetter();
-            this.validateForm();
-            this.createOrder();
             this.getOrderDate();
+            this.validateFormAndCreateOrder();
         },
 
         capitalLetter(){
@@ -144,20 +133,19 @@ export default {
             this.requestData.name = formatedName.join(" ");
         },
 
+        // improve clear form validation
         clearForm(){
             this.$refs.requestDataForm.reset();
-            this.requestData = {
-                name: "",
-                cloth: "",
-                impres: "",
-                color: [],
-            }
+            this.requestData.name = "";
+            this.requestData.cloth = null;
+            this.requestData.impres = null;
+            this.requestData.color = [];
         },
 
-        async validateForm(){
+        async validateFormAndCreateOrder(){
             const { valid } = await this.$refs.requestDataForm.validate();
             if (valid) {
-                alert("valid form")
+                this.createOrder();
             }
         },
 
@@ -166,7 +154,7 @@ export default {
             const data = await materials.json();
             this.cloths = data.cloths;
             this.impress = data.impress;
-            this.colors = data.colors;        
+            this.colors = data.colors;
         },
 
         getCloths() {
@@ -187,6 +175,15 @@ export default {
             return typeOfImpress;
         },
 
+        getColors(){
+            var colors = this.colors;
+            var typeOfColors = [];
+            colors.filter((colors) => {
+                typeOfColors.push(colors.tipo)
+            });
+            return typeOfColors;
+        },
+
         getOrderDate(){
             const date = new Date();
             var currentDate = date.toLocaleDateString();
@@ -195,24 +192,29 @@ export default {
             this.requestData.orderTime = currentTime;
         },
 
-        async createOrder(event) {
-            const url = "http://localhost:3000/product";
-            const data = {
-               name: this.requestData.name,
-               cloths: this.requestData.cloth,
-               impress: this.requestData.impres,
-               colors: this.requestData.color,
-               status: this.requestData.status,
-               orderDate: this.requestData.orderDate,
-               orderTime: this.requestData.orderTime,
-            };
-            const jsonData = JSON.stringify(data);
-            const response = await fetch(url, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: jsonData
-            });
-            const requisition = await response.json();
+        async createOrder() {
+                const url = "http://localhost:3000/product";
+                const data = {
+                   name: this.requestData.name,
+                   cloths: this.requestData.cloth,
+                   impress: this.requestData.impres,
+                   colors: this.requestData.color,
+                   status: this.requestData.status,
+                   orderDate: this.requestData.orderDate,
+                   orderTime: this.requestData.orderTime,
+                };
+                const jsonData = JSON.stringify(data);
+                console.log(data);
+                // const response = await fetch(url, {
+                //     method: "POST",
+                //     headers: {"Content-Type": "application/json"},
+                //     body: jsonData
+                // });
+                // const requisition = await response.json();
+        },
+
+        colorsRule(colors){
+            return colors.length > 0 || "choose at least 1 item"
         },
     },
 }
@@ -221,9 +223,5 @@ export default {
 <style scoped>
 span {
     color: #cb8db6;
-}
-.v-input__control {
-    display: flex;
-    justify-content: center;
 }
 </style>
