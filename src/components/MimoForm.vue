@@ -77,8 +77,12 @@
 
 <script>
 import globalRulesMethods from "/mixins/globalRulesMethods"
+import feedBackMessage from "./feedBackMessage.vue";
 export default {
     name: "MimoForm",
+    components: {
+        feedBackMessage
+    },
     mixins: [globalRulesMethods],
     // secondary color : #8499b4
     data(){
