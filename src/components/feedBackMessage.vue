@@ -1,11 +1,14 @@
 <template>
     <div>
-        <h3>feedBackMessage</h3>
+        <p>{{ message }}</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: "feedBackMessage"
+    name: "feedBackMessage",
+    props: {
+        message: String,
+    }
 }
 </script>
