@@ -212,7 +212,6 @@ export default {
                    orderTime: this.requestData.orderTime,
                 };
                 const jsonData = JSON.stringify(data);
-                console.log(data);
                 const response = await fetch(url, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
