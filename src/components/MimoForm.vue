@@ -6,7 +6,7 @@
                     <h1 class="mt-6">complete the fields below</h1>
                 </v-row>
                 <v-row justify="center">
-                    <v-col cols="7">
+                    <v-col cols="7">                        
                         <span>Type your name:</span>
                         <v-text-field
                         label="Client name" 
@@ -70,6 +70,9 @@
                         </v-hover>
                     </v-col>
                 </v-row>
+                <v-row justify="center">
+                    <feedBackMessage :message="requestMessage" v-show="requestMessage"/>
+                </v-row>
             </v-container>
         </v-form>
     </div>
@@ -104,6 +107,7 @@ export default {
                 name: "Must type a name",
                 required: "required field",
             },
+            requestMessage: "",
             rules: {
                 name: (name) => this.nameRules(name, this.errorTexts.name),
                 required: (field) => this.mandatory(field, this.errorTexts.required),
@@ -209,16 +213,25 @@ export default {
                 };
                 const jsonData = JSON.stringify(data);
                 console.log(data);
-                // const response = await fetch(url, {
-                //     method: "POST",
-                //     headers: {"Content-Type": "application/json"},
-                //     body: jsonData
-                // });
-                // const requisition = await response.json();
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: jsonData
+                });
+                if (response.status == 201) {
+                    const requisition = await response.json();
+                    this.feedBackMessage();
+                    this.clearForm();
+                }
         },
 
         colorsRule(colors){
             return colors.length > 0 || "choose at least 1 item"
+        },
+
+        feedBackMessage(){
+            this.requestMessage = "Request made successfully";
+            setTimeout(() => this.requestMessage = "", 3000);
         },
     },
 }
