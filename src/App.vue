@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <FirstComponent />
+      <!-- <FirstComponent />
       <LifeCycle /> 
-      <Info /> 
-      <!-- <AvatarInfos /> -->
+      <Info />  -->
+       <!-- <AvatarInfos /> -->
+       <realTImeCalculator />
     </v-main>
   </v-app>
 </template>
@@ -14,6 +15,7 @@ import FirstComponent from './components/FirstComponent.vue'
 import LifeCycle from './components/LifeCycle.vue'
 import Info from './components/Info.vue'
 import AvatarInfos from './components/AvatarInfos.vue'
+import realTImeCalculator from './components/realTImeCalculator.vue'
 
 export default {
   name: 'App',
@@ -23,6 +25,7 @@ export default {
     LifeCycle,
     Info,
     AvatarInfos,
+    realTImeCalculator,
   },
 
   data: () => ({
